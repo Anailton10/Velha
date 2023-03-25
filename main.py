@@ -1,15 +1,26 @@
-from sistema import *
-jogador = 0
-cpu = 1
-velha = layout()
-mostralayout(velha)
-ganhador = verificaGanhador(velha)
+from new import *
+
+v = JgVelha()
+ganhador = v.verificaGanhador()
 while not ganhador:
-    linha = getInput('Digite a linha: ')
-    coluna = getInput('Digite a coluna: ')
-    cpujoga(velha, cpu)
-    if fazMovimento(velha, linha, coluna, jogador):
-        verificaMovimento(linha, coluna, velha)
-    else:
-        print('Posição ja foi ocupada.')
-    ganhador = verificaGanhador(velha)
+    v.printarLayout()
+    try:
+        linha = int(input('Digite valor da linha:'))
+        if linha > 2:
+            linha = int(input('Digite valor da linha:'))
+    except:
+        print('Jogada Inválida!!')
+        linha = int(input('Digite valor da linha:'))
+    try:
+        coluna = int(input('Digite a Coluna:'))
+        if linha > 2:
+            coluna = int(input('Digite a Coluna:'))
+    except:
+        print('Jogada Inválida!!')
+        coluna = int(input('Digite a Coluna:'))
+    if v.movimentoJogada(linha, coluna):
+        v.verificaMovimento(linha, coluna)
+    ganhador = v.verificaGanhador()
+
+
+
