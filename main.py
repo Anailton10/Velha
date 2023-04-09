@@ -11,6 +11,7 @@ while not ganhador:
     except:
         print('Jogada Inválida!!')
         linha = int(input('Digite valor da linha:'))
+
     try:
         coluna = int(input('Digite a Coluna:'))
         if linha > 2:
